@@ -7,22 +7,21 @@
     <link rel="shortcut icon" type="image/png" href="public/img/icon.png" />
     <title>Les petits plats</title>
 
-    <script src="https://kit.fontawesome.com/f17c906855.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/f17c906855.js"
+      crossorigin="anonymous"
+    ></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <!-- <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-      crossorigin="anonymous"
-    /> -->
+
     <link rel="stylesheet" href="public/css/style.css" />
   </head>
   <body>
+    <div id="overlay" class="overlay"></div>
     <header class="main-header">
       <!-- LOGO -->
       <img src="public/img/logo.png" alt="logo les petits plats" />
@@ -45,21 +44,15 @@
 
       <!-- Advanced search -->
       <form action="index.html" method="POST" class="filters" id="filters">
-        <div class="filters-ele" id="filters-ele-ing">
-          <input placeholder="ingrédients" id="ing-input" />
+        <div class="filters-elt" id="filters-elt-ing">
+          <input placeholder="Ingrédients" id="ing-input" />
           <span class="fas fa-chevron-down" id="ing-btn"></span>
           <div class="filters-all">
-            <ul id="ing-filter-list">
-              <!-- <li style="display: block"><a href="/" class="filter-tag">test</a></li>
-              <li style="display: block"><a href="/" class="filter-tag">test</a></li>
-              <li style="display: block"><a href="/" class="filter-tag">test</a></li>
-              <li style="display: block"><a href="/" class="filter-tag">test</a></li>
-              <li style="display: block"><a href="/" class="filter-tag">test</a></li> -->
-            </ul>
+            <ul id="ing-filter-list"></ul>
           </div>
         </div>
 
-        <div class="filters-ele" id="filters-ele-app">
+        <div class="filters-elt" id="filters-elt-app">
           <input placeholder="Appareils" id="app-input" />
           <span class="fas fa-chevron-down" id="app-btn"></span>
           <div class="filters-all">
@@ -67,7 +60,7 @@
           </div>
         </div>
 
-        <div class="filters-ele" id="filters-ele-ust">
+        <div class="filters-elt" id="filters-elt-ust">
           <input placeholder="Ustensiles" id="ust-input" />
           <span class="fas fa-chevron-down" id="ust-btn"></span>
           <div class="filters-all">
@@ -79,7 +72,7 @@
 
     <!-- Main content-->
     <main class="main-content" id="main-content">
-      <article class="recipe">
+      <!-- <article class="recipe">
         <a href="#">
           <div class="recipe-img"></div>
           <div class="recipe-data">
@@ -104,10 +97,12 @@
             </div>
           </div>
         </a>
-      </article>
+      </article> -->
     </main>
 
     <!-- Alert -->
-    <p class="alert" id="alert"></p>
+    <p class="result" id="result"></p>
+
+    <script type="module" src="script/index.js"></script>
   </body>
 </html>

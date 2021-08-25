@@ -21,7 +21,7 @@ const manageSearchInput = (evt) => {
   completeSearch();
 };
 
-//////////////////////// V2
+//////////////////////// Algo V2
 // Rechercher les recettes à partir du champ de recherche
 let canIDisplayAllRecipes = false;
 const searchByInput = () => {
@@ -65,36 +65,6 @@ const searchByInput = () => {
   }
 };
 //////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////  V1
-// Rechercher les recettes à partir du champ de recherche
-// const searchByInput = () => {
-//   const value = state.currentSearch;
-//   state.displayedRecipes = [];
-
-//   if (value.length > 2) {
-//     return data.recipes.forEach((recipe) => {
-//       const recipeToDisplay = document.getElementById(recipe.id);
-//       const normaliezedText = normalizeText(value);
-//       if (
-//         normalizeText(recipe.name).includes(normaliezedText) ||
-//         normalizeText(recipe.description).includes(normaliezedText) ||
-//         getIngredientsStringFromRecipe(recipe).includes(normaliezedText)
-//       ) {
-//         recipeToDisplay.style.display = "block";
-//         return state.displayedRecipes.push(recipe.id);
-//       }
-//         return recipeToDisplay.style.display = "none";
-
-//     });
-//   }
-//     return data.recipes.forEach((recipe) => {
-//       const recipeToDisplay = document.getElementById(recipe.id);
-//       recipeToDisplay.style.display = "block";
-//     });
-
-// };
-////////////////////////////////
 
 // rechercher les recettes depuis les filtres
 const searchByTag = () => {

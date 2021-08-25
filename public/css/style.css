@@ -21,7 +21,7 @@ a {
 }
 
 .main-header {
-  width: 100%;
+  width: 1260px;
   max-width: 1440px;
   padding: 30px 20px;
   margin: auto;
@@ -128,7 +128,8 @@ a {
 .filters-elt:nth-child(1) {
   background-color: #3282f7;
 }
-.filters-elt:nth-child(1) > div, .filters-elt:nth-child(1) > input {
+.filters-elt:nth-child(1) > div,
+.filters-elt:nth-child(1) > input {
   background: #3282f7;
   font-family: "Lato", sans-serif;
 }
@@ -138,7 +139,8 @@ a {
 .filters-elt:nth-child(2) {
   background-color: #68d9a4;
 }
-.filters-elt:nth-child(2) > div, .filters-elt:nth-child(2) > input {
+.filters-elt:nth-child(2) > div,
+.filters-elt:nth-child(2) > input {
   background: #68d9a4;
 }
 .filters-elt:nth-child(2) li:hover {
@@ -147,7 +149,8 @@ a {
 .filters-elt:nth-child(3) {
   background-color: #ed6454;
 }
-.filters-elt:nth-child(3) > div, .filters-elt:nth-child(3) > input {
+.filters-elt:nth-child(3) > div,
+.filters-elt:nth-child(3) > input {
   background: #ed6454;
 }
 .filters-elt:nth-child(3) li:hover {
@@ -222,6 +225,7 @@ a {
   margin: 0 20px 50px 20px;
   align-self: stretch;
   transition: box-shadow 0.2s;
+  overflow: hidden;
 }
 .recipe:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
@@ -247,6 +251,9 @@ a {
   background: #e7e7e7;
   border-radius: 0 0 5px 5px;
   flex-grow: 1;
+  max-height: 240px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .recipe-data header {
   display: flex;
@@ -267,10 +274,15 @@ a {
 }
 .recipe-category {
   display: inline-block;
-  width: 49%;
+  width: calc(49%);
   vertical-align: top;
   font-size: 0.8rem;
   padding-right: 5px;
+  height: 80%;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+  overflow: hidden;
 }
 
 .result {

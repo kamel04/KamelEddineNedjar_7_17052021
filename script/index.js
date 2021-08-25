@@ -1,4 +1,3 @@
-"use strict";
 import { initializeState } from "./datalogic.js";
 import { initializeFilters } from "./filters.js";
 import { initializeRecipes } from "./recipes.js";

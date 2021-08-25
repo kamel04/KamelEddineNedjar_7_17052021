@@ -21,32 +21,80 @@ const manageSearchInput = (evt) => {
   completeSearch();
 };
 
+//////////////////////// V2
 // Rechercher les recettes à partir du champ de recherche
+let canIDisplayAllRecipes = false;
 const searchByInput = () => {
   const value = state.currentSearch;
   state.displayedRecipes = [];
 
   if (value.length > 2) {
-    data.recipes.forEach((recipe) => {
-      const recipeToDisplay = document.getElementById(recipe.id);
-      if (
-        normalizeText(recipe.name).includes(normalizeText(value)) ||
-        normalizeText(recipe.description).includes(normalizeText(value)) ||
-        getIngredientsStringFromRecipe(recipe).includes(normalizeText(value))
-      ) {
+    const recipes = data.recipes;
+    const j = recipes.length;
+    const normaliezedValue = normalizeText(value);
+
+    canIDisplayAllRecipes = true;
+
+    for (let i = 0; i < j; i++) {
+      const recipeToDisplay = document.getElementById(recipes[i].id);
+
+      if (normalizeText(recipes[i].name).includes(normaliezedValue)) {
         recipeToDisplay.style.display = "block";
-        state.displayedRecipes.push(recipe.id);
+        state.displayedRecipes.push(recipes[i].id);
+      } else if (normalizeText(recipes[i].description).includes(normaliezedValue)) {
+        recipeToDisplay.style.display = "block";
+        state.displayedRecipes.push(recipes[i].id);
+      } else if (getIngredientsStringFromRecipe(recipes[i]).includes(normaliezedValue)) {
+        recipeToDisplay.style.display = "block";
+        state.displayedRecipes.push(recipes[i].id);
       } else {
         recipeToDisplay.style.display = "none";
       }
-    });
+    }
   } else {
-    data.recipes.forEach((recipe) => {
-      const recipeToDisplay = document.getElementById(recipe.id);
-      recipeToDisplay.style.display = "block";
-    });
+    if (canIDisplayAllRecipes) {
+      const recipes = data.recipes;
+      const j = recipes.length;
+
+      for (let i = 0; i < j; i++) {
+        const recipeToDisplay = document.getElementById(recipes[i].id);
+        recipeToDisplay.style.display = "block";
+      }
+      canIDisplayAllRecipes = false;
+    }
   }
 };
+//////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////  V1
+// Rechercher les recettes à partir du champ de recherche
+// const searchByInput = () => {
+//   const value = state.currentSearch;
+//   state.displayedRecipes = [];
+
+//   if (value.length > 2) {
+//     return data.recipes.forEach((recipe) => {
+//       const recipeToDisplay = document.getElementById(recipe.id);
+//       const normaliezedText = normalizeText(value);
+//       if (
+//         normalizeText(recipe.name).includes(normaliezedText) ||
+//         normalizeText(recipe.description).includes(normaliezedText) ||
+//         getIngredientsStringFromRecipe(recipe).includes(normaliezedText)
+//       ) {
+//         recipeToDisplay.style.display = "block";
+//         return state.displayedRecipes.push(recipe.id);
+//       }
+//         return recipeToDisplay.style.display = "none";
+
+//     });
+//   }
+//     return data.recipes.forEach((recipe) => {
+//       const recipeToDisplay = document.getElementById(recipe.id);
+//       recipeToDisplay.style.display = "block";
+//     });
+
+// };
+////////////////////////////////
 
 // rechercher les recettes depuis les filtres
 const searchByTag = () => {
@@ -95,7 +143,7 @@ const displayRemainingTags = () => {
   } else {
     const allRecipes = document.querySelectorAll("#main-content article");
     const visibleRecipesIds = Array.from(allRecipes)
-      .filter((elt) => elt.display === "block")
+      .filter((elt) => elt.style.display === "block")
       .map((elt) => parseInt(elt.id));
     recipesToConsider = getFullRecipesFromIds(visibleRecipesIds);
   }

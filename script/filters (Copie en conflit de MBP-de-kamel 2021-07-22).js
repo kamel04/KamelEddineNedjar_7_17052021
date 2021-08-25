@@ -63,7 +63,6 @@ const createFiltersList = (listElt, list) => {
 // Remplir la liste des filtres avec les données
 const fillAllFilterLists = () => {
   createFiltersList(ingFiltersListElt, state.displayedIng);
-  //onsole.log(state.displayedIng);
   createFiltersList(appFiltersListElt, state.displayedApp);
   createFiltersList(ustFiltersListElt, state.displayedUst);
 };
@@ -119,11 +118,16 @@ const scaleFilterUp = (evt) => {
   evt.preventDefault();
   scaleAllFiltersDown();
   const parentElt = evt.target.parentNode;
-  const parentEltId = parentElt.id;
-  const elt = document.querySelector(`#${parentEltId} div`);
-  const buttonId = document.querySelector(`#${parentEltId} span`);
+
   parentElt.className += " scaled";
-  openFilterList(elt, buttonId.id);
+  console.log(parentElt);
+  console.log(parentElt.childNodes[1]);
+  console.log(parentElt.childNodes[2]);
+  console.log(parentElt.childNodes[3]);
+  console.log(parentElt.childNodes[5]);
+  console.log(parentElt.childNodes[2].id);
+
+  openFilterList(parentElt.childNodes[5], parentElt.childNodes[3].id);
 };
 
 // Ouvrir la liste des filtres
